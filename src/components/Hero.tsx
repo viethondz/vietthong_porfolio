@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { ChevronDown, MapPin, GraduationCap, Target } from 'lucide-react';
+import { MapPin, GraduationCap } from 'lucide-react';
 
+// Bạn có thể sửa nội dung chạy chữ ở đây nhé
 const TYPEWRITER_TEXTS = [
-  'Software Architect',
-  'DevOps Engineer',
-  'Future Builder',
+  'Sinh viên K70 CNTT',
+  'Tân binh đẹp trai và đầy tham vọng',
+  'Future Developer',
 ];
 
 function Typewriter() {
@@ -38,80 +39,83 @@ function Typewriter() {
   }, [charIndex, isDeleting, textIndex]);
 
   return (
-    <span className="gradient-text">
+    <span className="text-purple-400 font-mono">
       {displayed}
-      <span className="animate-blink text-neon-500">|</span>
+      <span className="animate-blink text-purple-500">|</span>
     </span>
   );
 }
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background grid effect */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(51,78,104,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(51,78,104,0.05)_1px,transparent_1px)] bg-[size:60px_60px]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-950/50 to-dark-950" />
+    <section className="relative w-full min-h-[550px] bg-dark-950 text-dark-200 overflow-hidden flex items-center border-b border-dark-800/50">
+      
+      {/* 1. Phần nội dung bên TRÁI */}
+      <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-16">
+        <div className="lg:col-span-7 space-y-6 max-w-2xl">
+          
+          {/* Logo */}
+          <div className="w-14 h-14 bg-dark-900 rounded-2xl shadow-xl flex items-center justify-center p-2 border border-dark-800">
+            <img 
+              src="/logo.png" 
+              alt="Logo" 
+              className="w-full h-full object-contain rounded-lg"
+            />
+          </div>
 
-      {/* Floating orbs */}
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-neon-500/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-navy-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          {/* Tiêu đề chính */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+            Xin chào, tôi là <br />
+            <span className="bg-gradient-to-r from-purple-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
+              Nguyễn Viết Thông
+            </span>
+          </h1>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {/* Terminal-style label */}
-        <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-dark-800/60 border border-dark-600/40 rounded-full animate-fade-in">
-          <span className="w-2 h-2 bg-neon-500 rounded-full animate-pulse" />
-          <span className="font-mono text-xs text-dark-300">portfolio_v1.0 --status=online</span>
-        </div>
+          {/* Hiệu ứng gõ chữ Typewriter */}
+          <div className="text-xl md:text-2xl font-semibold h-8">
+            <Typewriter />
+          </div>
 
-        {/* Name */}
-        <h1 className="text-5xl md:text-7xl font-bold text-dark-50 mb-4 animate-fade-in-up">
-          Nguyễn Viết Thông
-        </h1>
+          {/* Câu trích dẫn */}
+          <p className="text-dark-400 text-lg md:text-xl italic font-medium leading-relaxed border-l-4 border-purple-500/50 pl-4 mt-4">
+            "Một 'tân binh' đầy tham vọng tại K70 ngành Công nghệ Thông tin, UET."
+          </p>
 
-        {/* Typewriter role */}
-        <div className="text-2xl md:text-3xl font-semibold mb-6 h-10 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-          <Typewriter />
-        </div>
+          <hr className="border-dark-800 my-6" />
 
-        {/* Student info */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <InfoBadge icon={<GraduationCap size={14} />} text="K70 - CNTT, UET-ĐHQGHN" />
-          <InfoBadge icon={<MapPin size={14} />} text="MSV: 25020410" />
-          <InfoBadge icon={<Target size={14} />} text="Architect + DevOps" />
-        </div>
+          {/* Thông tin liên hệ */}
+          <div className="space-y-3 pt-2">
+            <h4 className="text-xs font-bold text-dark-500 tracking-wider uppercase">
+              Thông tin liên hệ
+            </h4>
+            
+            <div className="flex items-center gap-3 text-dark-300 hover:text-purple-400 transition-colors">
+              <GraduationCap size={18} className="text-purple-400" />
+              <a href="mailto:25020410@vnu.edu.vn" className="text-sm font-medium font-mono">25020410@vnu.edu.vn</a>
+            </div>
 
-        {/* Description */}
-        <p className="text-dark-400 max-w-2xl mx-auto text-lg leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-          Sinh viên ngành Công nghệ Thông tin, hướng đến việc thiết kế kiến trúc
-          và vận hành các hệ thống phần mềm. Xây dựng hồ sơ năng lực số chuyên nghiệp
-          từ môn "Nhập môn Công nghệ số và Ứng dụng AI".
-        </p>
-
-        {/* CTA */}
-        <div className="mt-10 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-neon-500/10 border border-neon-500/30 rounded-lg text-neon-400 font-medium hover:bg-neon-500/20 hover:border-neon-500/50 transition-all duration-300 animate-glow"
-          >
-            Khám phá dự án
-            <ChevronDown size={18} />
-          </a>
+            <div className="flex items-center gap-3 text-dark-300 hover:text-purple-400 transition-colors">
+              <MapPin size={18} className="text-purple-400" />
+              <a href="tel:0978474084" className="text-sm font-medium font-mono">0978474084</a>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <ChevronDown size={24} className="text-dark-500" />
+      {/* 2. Ảnh UET mờ dần bên PHẢI */}
+      <div className="absolute right-0 top-0 h-full w-full lg:w-[50%] z-0 pointer-events-none select-none opacity-40 md:opacity-50">
+        <div className="relative w-full h-full">
+          <div className="absolute inset-0 bg-gradient-to-r from-dark-950 via-dark-950/60 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent z-10" />
+          
+          <img 
+            src="/uet-background.jpg" 
+            alt="UET Background" 
+            className="w-full h-full object-cover object-center grayscale-[20%] contrast-[110%]"
+          />
+        </div>
       </div>
+      
     </section>
-  );
-}
-
-function InfoBadge({ icon, text }: { icon: React.ReactNode; text: string }) {
-  return (
-    <div className="flex items-center gap-2 px-3 py-1.5 bg-dark-800/50 border border-dark-700/40 rounded-lg">
-      <span className="text-neon-500">{icon}</span>
-      <span className="text-sm text-dark-200 font-medium">{text}</span>
-    </div>
   );
 }
