@@ -46,25 +46,84 @@ const projects: Project[] = [
     borderColor: 'border-sky-500/20',
     bgAccent: 'bg-sky-500/10',
     details: (
-      <div className="space-y-4">
-        <h4 className="text-dark-100 font-semibold">Quy trình thực hiện:</h4>
-        <ul className="space-y-2 text-dark-300 text-sm">
-          <li className="flex gap-2">
-            <span className="text-neon-500 font-mono text-xs mt-0.5">01</span>
-            Thiết lập cấu trúc thư mục phân cấp rõ ràng trên ổ đĩa cục bộ, bắt đầu bằng thư mục gốc <code className="code-inline">ThucHanh_NguyenQuocThai</code>, bên trong phân nhánh thành các thư mục con như <code className="code-inline">TaiLieu</code>.
-          </li>
-          <li className="flex gap-2">
-            <span className="text-neon-500 font-mono text-xs mt-0.5">02</span>
-            Áp dụng quy tắc đặt tên tệp viết hoa chữ cái đầu (PascalCase) và không dấu để tránh lỗi môi trường, ví dụ: <code className="code-inline">GhiChuQuanTrong.txt</code>, <code className="code-inline">DiChuyen.txt</code>.
-          </li>
-        </ul>
-        <div className="bg-dark-900/60 border border-dark-600/30 rounded-lg p-3">
-          <p className="text-dark-400 text-xs font-mono">
-            // Lưu ý: Chèn các ảnh chụp màn hình các bước New Folder, Rename, Copy/Cut từ file bài 1 vào đây
-          </p>
-        </div>
+    <div className="space-y-6">
+      {/* Tiêu đề phần Nhật ký */}
+      <div className="flex items-center gap-2 text-sky-400 font-semibold text-xs tracking-wider uppercase">
+        <span className="text-sm">↗</span> NHẬT KÝ THAO TÁC KỸ THUẬT
       </div>
-    ),
+
+      {/* Danh sách các bước */}
+      <ol className="space-y-4 text-dark-200 text-sm leading-relaxed">
+        {/* Bước 1 */}
+        <li className="flex gap-4">
+          <span className="text-emerald-500 font-bold min-w-[16px]">1.</span>
+          <div>
+            Khởi tạo cây thư mục gốc an toàn:{" "}
+            <code className="bg-emerald-950/40 text-emerald-400 border border-emerald-900/50 rounded px-1.5 py-0.5 text-xs font-mono">
+              New Volume (D:) → ThucHanh_NguyenVietThong
+            </code>
+            . Phân nhánh phân cấp logic sang thư mục con{" "}
+            <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
+              TaiLieu
+            </code>
+            .
+          </div>
+        </li>
+
+        {/* Bước 2 */}
+        <li className="flex gap-4">
+          <span className="text-emerald-500 font-bold min-w-[16px]">2.</span>
+          <div>
+            Quản lý vòng đời tệp tin văn bản: Khởi tạo{" "}
+            <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
+              GhiChu.txt
+            </code>
+            , tái cấu trúc định danh đổi tên thành{" "}
+            <code className="bg-emerald-950/40 text-emerald-400 border border-emerald-900/50 rounded px-1.5 py-0.5 text-xs font-mono">
+              GhiChuQuanTrong.txt
+            </code>{" "}
+            bằng chuẩn PascalCase không dấu nhằm tối ưu hóa tương thích shell script.
+          </div>
+        </li>
+
+        {/* Bước 3 */}
+        <li className="flex gap-4">
+          <span className="text-emerald-500 font-bold min-w-[16px]">3.</span>
+          <div>
+            Điều phối luồng dữ liệu (Copy & Paste): Bản sao lưu được cô lập an toàn trong thư mục{" "}
+            <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
+              TaiLieu
+            </code>
+            .
+          </div>
+        </li>
+
+        {/* Bước 4 */}
+        <li className="flex gap-4">
+          <span className="text-emerald-500 font-bold min-w-[16px]">4.</span>
+          <div>
+            Thao tác di chuyển (Cut & Paste): Chuyển tệp{" "}
+            <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
+              DiChuyen.txt
+            </code>{" "}
+            vào vùng lưu trữ cô lập mới, tệp gốc tại thư mục mẹ bị triệt tiêu hoàn toàn.
+          </div>
+        </li>
+
+        {/* Bước 5 */}
+        <li className="flex gap-4">
+          <span className="text-emerald-500 font-bold min-w-[16px]">5.</span>
+          <div>
+            Xóa an toàn và Khôi phục (Recycle Bin & Destructive Deletion): Thử nghiệm xóa tạm thời đưa vào Thùng rác và cơ chế xóa vĩnh viễn ({" "}
+            <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
+              Shift + Delete
+            </code>{" "}
+            ) bỏ qua bộ nhớ đệm, ngăn chặn các kỹ thuật phục hồi dữ liệu trái phép (Data Recovery).
+          </div>
+        </li>
+      </ol>
+    </div>
+  ),
   },
   {
     id: 2,
