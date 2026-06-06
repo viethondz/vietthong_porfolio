@@ -38,11 +38,11 @@ const SUMMARY_ITEMS = [
 
 export default function Summary() {
   return (
-    <section id="summary" className="relative py-24">
+    <section id="tong-ket" className="relative py-24">
       {/* Subtle background accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-dark-600/30 to-transparent" />
 
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="container mx-auto px-6 md:px-12 lg:px-24">
         {/* Section header */}
         <div className="mb-16">
           <span className="section-subtitle">// Tổng kết</span>

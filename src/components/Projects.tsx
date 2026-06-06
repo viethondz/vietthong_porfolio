@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  FolderTree, Search, MessageSquareText, Users, Sparkles, ShieldCheck,
+  FolderTree, ShieldAlert, TerminalSquare, Users, Palette, Scale,
   X, ChevronRight, ArrowUpRight,
 } from 'lucide-react';
 
@@ -40,90 +40,150 @@ const projects: Project[] = [
     id: 1,
     title: 'Bài 1: Thao tác cơ bản với tệp tin và thư mục',
     shortTitle: 'Tệp tin & Thư mục',
-    objective: 'Trình bày cấu trúc thư mục tối ưu và quy tắc đặt tên tệp thống nhất.',
+    objective: 'Trình bày cấu trúc thư mục tối ưu và quy tắc đặt tên tệp thống nhất. Thực hành làm chủ các lệnh quản lý tệp tin trên HĐH Windows.',
     icon: <FolderTree size={24} />,
     color: 'text-sky-400',
     borderColor: 'border-sky-500/20',
     bgAccent: 'bg-sky-500/10',
     details: (
-    <div className="space-y-6">
-      {/* Tiêu đề phần Nhật ký */}
-      <div className="flex items-center gap-2 text-sky-400 font-semibold text-xs tracking-wider uppercase">
-        <span className="text-sm">↗</span> NHẬT KÝ THAO TÁC KỸ THUẬT
+      <div className="space-y-6">
+        
+        {/* Khung Thông tin Môn học & Cấu trúc thư mục */}
+        <div className="bg-dark-900/50 p-5 rounded-xl border border-dark-800 text-sm md:text-base text-dark-300 shadow-inner">
+          <p className="mb-4 pb-4 border-b border-dark-800/60">
+            <strong className="text-white">Môn học:</strong> Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo
+          </p>
+          
+          <div className="flex items-center gap-2 mb-3">
+            <strong className="text-sky-400 text-xs font-semibold tracking-wider uppercase">
+              [+] Sơ đồ cấu trúc thư mục thực hành:
+            </strong>
+          </div>
+          
+          {/* Cây thư mục (Directory Tree) hiển thị trực quan */}
+          <div className="font-mono text-sm space-y-2 ml-1 bg-dark-950 p-4 rounded-lg border border-dark-800 shadow-sm overflow-x-auto">
+            <div className="flex items-center gap-2 whitespace-nowrap">
+              <span className="text-dark-400">🖴</span> 
+              <span className="text-emerald-400 font-bold">New Volume (D:)</span>
+            </div>
+            
+            <div className="flex items-center gap-2 ml-6 text-sky-300 whitespace-nowrap">
+              <span className="text-dark-500">└─ 📁</span> 
+              <span>ThucHanh_NguyenVietThong</span> 
+              <span className="text-dark-500 text-xs italic font-sans ml-2">(Thư mục gốc)</span>
+            </div>
+            
+            <div className="flex items-center gap-2 ml-12 text-sky-200 whitespace-nowrap">
+              <span className="text-dark-500">└─ 📁</span> 
+              <span>TaiLieu</span> 
+              <span className="text-dark-500 text-xs italic font-sans ml-2">(Thư mục lưu trữ)</span>
+            </div>
+            
+            <div className="flex items-center gap-2 ml-16 text-dark-200 whitespace-nowrap">
+              <span className="text-dark-500">├─ 📄</span> 
+              <span>GhiChuQuanTrong.txt</span>
+              <span className="text-dark-500 text-xs italic font-sans ml-2">(Tệp gốc đã đổi tên)</span>
+            </div>
+            
+            <div className="flex items-center gap-2 ml-16 text-dark-400 whitespace-nowrap">
+              <span className="text-dark-500">└─ 📄</span> 
+              <span className="line-through decoration-dark-500">DiChuyen.txt</span> 
+              <span className="text-rose-500/70 text-xs italic font-sans ml-2">(Đã bị Cut/Xóa vĩnh viễn)</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Tiêu đề phần Nhật ký */}
+        <div className="flex items-center gap-2 text-sky-400 font-semibold text-xs tracking-wider uppercase">
+          <span className="text-sm">↗</span> NHẬT KÝ THAO TÁC KỸ THUẬT CHI TIẾT
+        </div>
+
+        {/* Danh sách các bước */}
+        <ol className="space-y-4 text-dark-200 text-sm leading-relaxed">
+          {/* Bước 1 */}
+          <li className="flex gap-4">
+            <span className="text-emerald-500 font-bold min-w-[16px]">1.</span>
+            <div>
+              <strong className="text-white">Khởi tạo cây thư mục gốc:</strong> Sử dụng File Explorer, truy cập phân vùng đĩa và thiết lập hệ thống thư mục an toàn:{" "}
+              <code className="bg-emerald-950/40 text-emerald-400 border border-emerald-900/50 rounded px-1.5 py-0.5 text-xs font-mono">
+                New Volume (D:) → ThucHanh_NguyenVietThong
+              </code>
+              . Phân nhánh phân cấp logic sang thư mục con{" "}
+              <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
+                TaiLieu
+              </code>
+              .
+            </div>
+          </li>
+
+          {/* Bước 2 */}
+          <li className="flex gap-4">
+            <span className="text-emerald-500 font-bold min-w-[16px]">2.</span>
+            <div>
+              <strong className="text-white">Quản lý vòng đời tệp tin văn bản:</strong> Khởi tạo tệp gốc{" "}
+              <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
+                GhiChu.txt
+              </code>
+              , tái cấu trúc định danh, đổi tên thành{" "}
+              <code className="bg-emerald-950/40 text-emerald-400 border border-emerald-900/50 rounded px-1.5 py-0.5 text-xs font-mono">
+                GhiChuQuanTrong.txt
+              </code>{" "}
+              bằng chuẩn PascalCase không dấu nhằm tối ưu hóa tính tương thích shell script.
+            </div>
+          </li>
+
+          {/* Bước 3 */}
+          <li className="flex gap-4">
+            <span className="text-emerald-500 font-bold min-w-[16px]">3.</span>
+            <div>
+              <strong className="text-white">Điều phối luồng dữ liệu (Copy & Paste):</strong> Thực hiện nhân bản dữ liệu. Bản sao lưu của tệp được sao chép và cô lập an toàn trong thư mục{" "}
+              <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
+                TaiLieu
+              </code>
+              .
+            </div>
+          </li>
+
+          {/* Bước 4 */}
+          <li className="flex gap-4">
+            <span className="text-emerald-500 font-bold min-w-[16px]">4.</span>
+            <div>
+              <strong className="text-white">Thao tác di chuyển (Cut & Paste):</strong> Tạo tệp{" "}
+              <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
+                DiChuyen.txt
+              </code>{" "}
+              và thực hiện cắt (Cut) để chuyển vào vùng lưu trữ mới. Tệp gốc tại thư mục mẹ bị triệt tiêu hoàn toàn.
+            </div>
+          </li>
+
+          {/* Bước 5 */}
+          <li className="flex gap-4">
+            <span className="text-emerald-500 font-bold min-w-[16px]">5.</span>
+            <div>
+              <strong className="text-white">Xóa an toàn & Khôi phục (Recycle Bin/Destructive Deletion):</strong> Thử nghiệm xóa tạm thời đưa tệp vào Thùng rác và dùng lệnh <strong>Restore</strong> để khôi phục. Thực hành cơ chế xóa vĩnh viễn ({" "}
+              <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
+                Shift + Delete
+              </code>{" "}
+              ) tệp DiChuyen.txt bỏ qua bộ nhớ đệm, ngăn chặn các kỹ thuật phục hồi dữ liệu trái phép.
+            </div>
+          </li>
+        </ol>
+
+        {/* NÚT BẤM CHUYỂN HƯỚNG SANG FILE PDF */}
+        <div className="pt-6 mt-6 border-t border-dark-800/80 flex justify-start">
+          <a 
+            href={`${import.meta.env.BASE_URL}bai1cns.pdf`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-sky-500/10 text-sky-400 border border-sky-500/30 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-sky-500 hover:text-white hover:border-sky-500 hover:scale-105 transition-all duration-300 group"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:animate-bounce"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Mở toàn bộ Báo cáo PDF
+          </a>
+        </div>
+
       </div>
-
-      {/* Danh sách các bước */}
-      <ol className="space-y-4 text-dark-200 text-sm leading-relaxed">
-        {/* Bước 1 */}
-        <li className="flex gap-4">
-          <span className="text-emerald-500 font-bold min-w-[16px]">1.</span>
-          <div>
-            Khởi tạo cây thư mục gốc an toàn:{" "}
-            <code className="bg-emerald-950/40 text-emerald-400 border border-emerald-900/50 rounded px-1.5 py-0.5 text-xs font-mono">
-              New Volume (D:) → ThucHanh_NguyenVietThong
-            </code>
-            . Phân nhánh phân cấp logic sang thư mục con{" "}
-            <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
-              TaiLieu
-            </code>
-            .
-          </div>
-        </li>
-
-        {/* Bước 2 */}
-        <li className="flex gap-4">
-          <span className="text-emerald-500 font-bold min-w-[16px]">2.</span>
-          <div>
-            Quản lý vòng đời tệp tin văn bản: Khởi tạo{" "}
-            <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
-              GhiChu.txt
-            </code>
-            , tái cấu trúc định danh đổi tên thành{" "}
-            <code className="bg-emerald-950/40 text-emerald-400 border border-emerald-900/50 rounded px-1.5 py-0.5 text-xs font-mono">
-              GhiChuQuanTrong.txt
-            </code>{" "}
-            bằng chuẩn PascalCase không dấu nhằm tối ưu hóa tương thích shell script.
-          </div>
-        </li>
-
-        {/* Bước 3 */}
-        <li className="flex gap-4">
-          <span className="text-emerald-500 font-bold min-w-[16px]">3.</span>
-          <div>
-            Điều phối luồng dữ liệu (Copy & Paste): Bản sao lưu được cô lập an toàn trong thư mục{" "}
-            <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
-              TaiLieu
-            </code>
-            .
-          </div>
-        </li>
-
-        {/* Bước 4 */}
-        <li className="flex gap-4">
-          <span className="text-emerald-500 font-bold min-w-[16px]">4.</span>
-          <div>
-            Thao tác di chuyển (Cut & Paste): Chuyển tệp{" "}
-            <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
-              DiChuyen.txt
-            </code>{" "}
-            vào vùng lưu trữ cô lập mới, tệp gốc tại thư mục mẹ bị triệt tiêu hoàn toàn.
-          </div>
-        </li>
-
-        {/* Bước 5 */}
-        <li className="flex gap-4">
-          <span className="text-emerald-500 font-bold min-w-[16px]">5.</span>
-          <div>
-            Xóa an toàn và Khôi phục (Recycle Bin & Destructive Deletion): Thử nghiệm xóa tạm thời đưa vào Thùng rác và cơ chế xóa vĩnh viễn ({" "}
-            <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">
-              Shift + Delete
-            </code>{" "}
-            ) bỏ qua bộ nhớ đệm, ngăn chặn các kỹ thuật phục hồi dữ liệu trái phép (Data Recovery).
-          </div>
-        </li>
-      </ol>
-    </div>
-  ),
+    ),
   },
   {
     id: 2,
@@ -419,8 +479,8 @@ export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="relative py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="du-an" className="relative py-24">
+      <div className="container mx-auto px-6 md:px-12 lg:px-24">
         {/* Section header */}
         <div className="mb-16">
           <span className="section-subtitle">// Dự án</span>

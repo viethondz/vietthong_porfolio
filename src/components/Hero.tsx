@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { MapPin, GraduationCap } from 'lucide-react';
 
-// Bạn có thể sửa nội dung chạy chữ ở đây nhé
+// Nội dung chạy chữ máy tính gõ
 const TYPEWRITER_TEXTS = [
   'Sinh viên K70 CNTT',
   'Tân binh đẹp trai và đầy tham vọng',
@@ -48,17 +48,17 @@ function Typewriter() {
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-[550px] bg-dark-950 text-dark-200 overflow-hidden flex items-center border-b border-dark-800/50">
-      
+    <section id="gioi-thieu" className="relative w-full min-h-[550px] bg-dark-950 text-dark-200 overflow-hidden flex items-center border-b border-dark-800/50">
+
       {/* 1. Phần nội dung bên TRÁI */}
       <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-16">
         <div className="lg:col-span-7 space-y-6 max-w-2xl">
-          
+
           {/* Logo */}
           <div className="w-14 h-14 bg-dark-900 rounded-2xl shadow-xl flex items-center justify-center p-2 border border-dark-800">
-            <img 
+            <img
               src={`${import.meta.env.BASE_URL}logo.png`}
-              alt="Logo" 
+              alt="Logo"
               className="w-full h-full object-contain rounded-lg"
             />
           </div>
@@ -88,7 +88,7 @@ export default function Hero() {
             <h4 className="text-xs font-bold text-dark-500 tracking-wider uppercase">
               Thông tin liên hệ
             </h4>
-            
+
             <div className="flex items-center gap-3 text-dark-300 hover:text-purple-400 transition-colors">
               <GraduationCap size={18} className="text-purple-400" />
               <a href="mailto:25020410@vnu.edu.vn" className="text-sm font-medium font-mono">25020410@vnu.edu.vn</a>
@@ -96,26 +96,27 @@ export default function Hero() {
 
             <div className="flex items-center gap-3 text-dark-300 hover:text-purple-400 transition-colors">
               <MapPin size={18} className="text-purple-400" />
-              <a href="tel:0978474084" className="text-sm font-medium font-mono">0978474084</a>
+              <a href="tel:0979721940" className="text-sm font-medium font-mono">0979721940</a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 2. Ảnh UET mờ dần bên PHẢI */}
-      <div className="absolute right-0 top-0 h-full w-full lg:w-[50%] z-0 pointer-events-none select-none opacity-40 md:opacity-50">
+      {/* 2. Phần ảnh nền UET bên PHẢI (Đã kích sáng, căn lề chuẩn) */}
+      <div className="absolute right-0 top-0 h-full w-full lg:w-[50%] z-0 pointer-events-none select-none opacity-65 md:opacity-75">
         <div className="relative w-full h-full">
-          <div className="absolute inset-0 bg-gradient-to-r from-dark-950 via-dark-950/60 to-transparent z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent z-10" />
-          
-          <img 
-            src={`${import.meta.env.BASE_URL}uet-background.jpg`} 
-            alt="UET Background" 
-            className="w-full h-full object-cover object-center grayscale-[20%] contrast-[110%]"
-          />
+          {/* Lớp phủ mờ Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-dark-950 via-dark-950/30 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-transparent to-transparent z-10" />
+
+        <img
+          src={`${import.meta.env.BASE_URL}uet-background.jpg`}
+          alt="UET Background"
+          className="w-full h-full object-contain object-right lg:object-center contrast-[105%] brightness-125"
+        />
         </div>
       </div>
-      
+
     </section>
   );
 }

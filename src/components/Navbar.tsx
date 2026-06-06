@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Shield } from 'lucide-react';
 
+// Sửa 1 & 2: Viết hoa tên mảng và đổi 'name' thành 'label'
 const NAV_ITEMS = [
-  { label: 'Giới thiệu', href: '#hero' },
-  { label: 'Dự án', href: '#projects' },
-  { label: 'Tổng kết', href: '#summary' },
+  { label: 'Giới thiệu', href: '#gioi-thieu' },
+  { label: 'Bản thân', href: '#ban-than' }, 
+  { label: 'Dự án', href: '#du-an' },
+  { label: 'Tổng kết', href: '#tong-ket' }
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('#hero');
+  
+  // Sửa 4: Đổi mặc định thành '#gioi-thieu'
+  const [activeSection, setActiveSection] = useState('#gioi-thieu');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -29,7 +33,9 @@ export default function Navbar() {
       },
       { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' }
     );
-    ['hero', 'projects', 'summary'].forEach((id) => {
+    
+    // Sửa 3: Cập nhật lại các ID cần theo dõi khi cuộn trang
+    ['gioi-thieu', 'ban-than', 'du-an', 'tong-ket'].forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
@@ -45,10 +51,17 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
-        <a href="#hero" className="flex items-center gap-2 group">
-          <span className="font-mono text-neon-500 text-lg font-semibold">&lt;/&gt;</span>
-          <span className="text-dark-50 font-semibold text-lg tracking-tight group-hover:text-neon-400 transition-colors">
-            NVThong
+        {/* Đổi href logo trỏ về #gioi-thieu thay vì #hero */}
+        <a href="#gioi-thieu" className="flex items-center gap-2 group font-mono">
+          {/* --- ĐÃ THAY BẰNG ICON CÁ VOI XỊN XÒ --- */}
+          <Shield 
+            size={24} 
+            className="text-neon-500 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" 
+          />
+          {/* -------------------------------------- */}
+  
+          <span className="text-lg md:text-xl font-extrabold tracking-wide bg-gradient-to-r from-white via-slate-200 to-neon-400 bg-clip-text text-transparent transition-all duration-300 group-hover:brightness-125">
+            Nguyễn Viết Thông
           </span>
         </a>
 
