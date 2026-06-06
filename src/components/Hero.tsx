@@ -57,7 +57,7 @@ export default function Hero() {
           {/* Logo */}
           <div className="w-14 h-14 bg-dark-900 rounded-2xl shadow-xl flex items-center justify-center p-2 border border-dark-800">
             <img 
-              src="/logo.png" 
+              src="./logo.png" 
               alt="Logo" 
               className="w-full h-full object-contain rounded-lg"
             />
@@ -109,7 +109,7 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent z-10" />
           
           <img 
-            src="/uet-background.jpg" 
+            src="./uet-background.jpg" 
             alt="UET Background" 
             className="w-full h-full object-cover object-center grayscale-[20%] contrast-[110%]"
           />
