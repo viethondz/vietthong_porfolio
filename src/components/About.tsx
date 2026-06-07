@@ -53,7 +53,7 @@ export default function About() {
                     <Code size={20} className="text-neon-500" />
                     <h3>Định hướng kĩ năng</h3>
                   </div>
-                  <div className="bg-dark-950 border border-dark-800 rounded-lg p-3.5 text-sm text-dark-300 shadow-inner">
+                  <div className="p-4 bg-dark-950/60 border border-dark-800 rounded-xl transition-all duration-300 cursor-pointer hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,0.7)] hover:-translate-y-1">
                     Web Development
                   </div>
                 </div>
@@ -66,7 +66,7 @@ export default function About() {
                   </div>
                   <div className="space-y-3">
                     {HOBBIES.map((hobby, index) => (
-                      <div key={index} className="bg-dark-950 border border-dark-800 rounded-lg p-3.5 text-sm text-dark-300 shadow-inner">
+                      <div key={index}className="p-4 bg-dark-950/60 border border-dark-800 rounded-xl transition-all duration-300 cursor-pointer hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,0.7)] hover:-translate-y-1">
                         {hobby}
                       </div>
                     ))}
@@ -82,10 +82,10 @@ export default function About() {
                   <h3>Học tập</h3>
                 </div>
                 <div className="space-y-3">
-                  <div className="bg-dark-950 border border-dark-800 rounded-lg p-3.5 text-sm text-dark-300 flex items-center gap-2 shadow-inner">
+                  <div className="p-4 bg-dark-950/60 border border-dark-800 rounded-xl transition-all duration-300 cursor-pointer hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,0.7)] hover:-translate-y-1">
                     🎓 Lớp IT1-K70
                   </div>
-                  <div className="bg-dark-950 border border-dark-800 rounded-lg p-3.5 text-sm text-dark-300 flex items-center gap-2 shadow-inner">
+                  <div className="p-4 bg-dark-950/60 border border-dark-800 rounded-xl transition-all duration-300 cursor-pointer hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,0.7)] hover:-translate-y-1">
                     🏫 Khoa Công nghệ thông tin - UET
                   </div>
                 </div>

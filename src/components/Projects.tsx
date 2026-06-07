@@ -187,223 +187,305 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: 'Bài 2: Tìm kiếm và đánh giá thông tin học thuật',
-    shortTitle: 'Tìm kiếm Học thuật',
-    objective: 'Áp dụng toán tử nâng cao để tìm kiếm và đánh giá nguồn tin chuyên sâu.',
-    icon: <Search size={24} />,
-    color: 'text-violet-400',
-    borderColor: 'border-violet-500/20',
-    bgAccent: 'bg-violet-500/10',
-    details: (
-      <div className="space-y-4">
-        <h4 className="text-dark-100 font-semibold">Chủ đề nghiên cứu:</h4>
-        <p className="text-dark-300 text-sm">
-          Tác hại của Method Overriding và Bài toán Lớp cơ sở mỏng manh (Fragile Base Class) trong Java.
-        </p>
-
-        <h4 className="text-dark-100 font-semibold mt-4">Chiến lược tìm kiếm (5 toán tử):</h4>
-        <div className="space-y-0">
-          <SearchOperator
-            op='intitle:"fragile base class" site:ieee.org OR site:springer.com'
-            desc="Lọc bài báo khoa học trên IEEE/Springer có tiêu đề chứa từ khóa."
-          />
-          <SearchOperator
-            op='"Fragile Base Class" AND "Method Overriding" filetype:pdf'
-            desc="Tìm tài liệu định dạng PDF chứa chính xác 2 cụm từ này."
-          />
-          <SearchOperator
-            op='author:"Joshua Bloch" AND "Effective Java" inheritance'
-            desc="Tìm best practices từ tác giả kiến trúc Java Core."
-          />
-          <SearchOperator
-            op='(composition OR inheritance) AND "best practices" "Java"'
-            desc="So sánh hai kỹ thuật thiết kế."
-          />
-          <SearchOperator
-            op='"Fragile Base Class" -C++ "Java"'
-            desc="Loại trừ ngôn ngữ C++ để tránh nhiễu."
-          />
-        </div>
-
-        <h4 className="text-dark-100 font-semibold mt-4">Đánh giá nguồn tin:</h4>
-        <p className="text-dark-300 text-sm">
-          Đã đánh giá 10 nguồn tài liệu học thuật (Mikhajlov, Businge, Snyder...) dựa trên 5 tiêu chí:
-          Tác giả, Cơ quan xuất bản, Phương pháp nghiên cứu, Trích dẫn, và Tính cập nhật.
-          Kết quả chỉ ra rằng việc lạm dụng ghi đè phá vỡ tính đóng gói,
-          khuyến nghị ưu tiên <span className="text-neon-400 font-semibold">Tổng hợp (Composition)</span> hơn Kế thừa (Inheritance).
-        </p>
-      </div>
-    ),
-  },
-  {
-    id: 3,
-    title: 'Bài 3: Viết Prompt hiệu quả cho các tác vụ học tập',
-    shortTitle: 'Prompt Engineering',
-    objective: 'Trình bày sự cải tiến Prompt và kết quả đầu ra.',
-    icon: <MessageSquareText size={24} />,
-    color: 'text-emerald-400',
-    borderColor: 'border-emerald-500/20',
-    bgAccent: 'bg-emerald-500/10',
-    details: (
-      <div className="space-y-4">
-        <h4 className="text-dark-100 font-semibold">Kết quả:</h4>
-        <p className="text-dark-300 text-sm mb-3">
-          Đã áp dụng kỹ thuật Prompt Engineering (Role-playing, Chain-of-thought, Specific Constraints) cho 3 tác vụ:
-        </p>
-
-        <div className="space-y-3">
-          <div className="bg-dark-900/60 border border-emerald-500/20 rounded-lg p-3">
-            <span className="text-emerald-400 font-mono text-xs font-semibold">Tác vụ 1</span>
-            <span className="text-dark-200 text-sm ml-2">Tóm tắt API JavaFX</span>
-            <p className="text-dark-400 text-sm mt-1">
-              Nâng cấp từ "Tóm tắt API" thành prompt đóng vai Senior Dev, yêu cầu giải quyết bài toán Thread-safety (updateMessage lên UI Thread).
-            </p>
-          </div>
-
-          <div className="bg-dark-900/60 border border-emerald-500/20 rounded-lg p-3">
-            <span className="text-emerald-400 font-mono text-xs font-semibold">Tác vụ 2</span>
-            <span className="text-dark-200 text-sm ml-2">Giải thích tính đa hình</span>
-            <p className="text-dark-400 text-sm mt-1">
-              Yêu cầu AI giải thích sâu cơ chế <code className="code-inline">Dynamic Method Dispatch</code> ở tầng JVM thay vì định nghĩa bề mặt.
-            </p>
-          </div>
-
-          <div className="bg-dark-900/60 border border-emerald-500/20 rounded-lg p-3">
-            <span className="text-emerald-400 font-mono text-xs font-semibold">Tác vụ 3</span>
-            <span className="text-dark-200 text-sm ml-2">Tạo đề toán Giải tích 2</span>
-            <p className="text-dark-400 text-sm mt-1">
-              Yêu cầu cụ thể định dạng xuất ra bằng mã LaTeX, bao quát đạo hàm hướng, vi phân toàn phần và có lời giải chi tiết.
-            </p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 4,
-    title: 'Bài 4: Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm',
-    shortTitle: 'Hợp tác Trực tuyến',
-    objective: 'Minh chứng việc phối hợp trực tuyến trong dự án "Phần mềm Quản lý Thư viện Java".',
-    icon: <Users size={24} />,
-    color: 'text-amber-400',
-    borderColor: 'border-amber-500/20',
-    bgAccent: 'bg-amber-500/10',
-    details: (
-      <div className="space-y-4">
-        <h4 className="text-dark-100 font-semibold">Công cụ và Quy trình triển khai:</h4>
-
-        <div className="space-y-3">
-          <div className="bg-dark-900/60 border border-amber-500/20 rounded-lg p-3">
-            <span className="text-amber-400 font-mono text-sm font-semibold">Trello</span>
-            <span className="text-dark-300 text-sm ml-2">- Quản lý tiến độ</span>
-            <ul className="text-dark-400 text-sm mt-2 space-y-1 ml-4 list-disc">
-              <li>Xây dựng bảng Kanban 4 cột (Backlog, Doing, Review, Done)</li>
-              <li>Áp dụng nhãn màu cho từng loại task (JavaFX, Database, Báo cáo)</li>
-              <li>Thiết lập Due Date chặt chẽ</li>
-            </ul>
-          </div>
-
-          <div className="bg-dark-900/60 border border-amber-500/20 rounded-lg p-3">
-            <span className="text-amber-400 font-mono text-sm font-semibold">Discord</span>
-            <span className="text-dark-300 text-sm ml-2">- Giao tiếp & Debug</span>
-            <ul className="text-dark-400 text-sm mt-2 space-y-1 ml-4 list-disc">
-              <li>Phân chia luồng công việc rõ ràng bằng các kênh <code className="code-inline">#thong-bao-chung</code>, <code className="code-inline">#thao-luan-code</code></li>
-              <li>Sử dụng tính năng "Thread" để giải quyết tình trạng trôi thông báo khi debug</li>
-            </ul>
-          </div>
-
-          <div className="bg-dark-900/60 border border-amber-500/20 rounded-lg p-3">
-            <span className="text-amber-400 font-mono text-sm font-semibold">Google Workspace</span>
-            <span className="text-dark-300 text-sm ml-2">- Lưu trữ & Soạn thảo</span>
-            <ul className="text-dark-400 text-sm mt-2 space-y-1 ml-4 list-disc">
-              <li>Thiết lập cấu trúc thư mục Drive với quyền truy cập nghiêm ngặt</li>
-              <li>Áp dụng chế độ "Suggesting" (Đề xuất) trên Google Docs để giải quyết triệt để tình trạng ghi đè nội dung của nhau</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 5,
-    title: 'Bài 5: Sử dụng AI tạo sinh hỗ trợ sáng tạo nội dung',
-    shortTitle: 'AI Sáng tạo',
-    objective: 'Trưng bày Infographic "Best Practices tối ưu Java 25" sản xuất bằng AI.',
-    icon: <Sparkles size={24} />,
+    title: 'Bài 2: Đánh giá rủi ro bảo mật của AI trong lập trình',
+    shortTitle: 'Bảo mật AI Coding',
+    objective: 'Đánh giá mức độ ảnh hưởng của AI coding assistants (như GitHub Copilot) đến chất lượng và độ an toàn của mã nguồn.',
+    icon: <ShieldAlert size={24} />,
     color: 'text-rose-400',
     borderColor: 'border-rose-500/20',
     bgAccent: 'bg-rose-500/10',
     details: (
-      <div className="space-y-4">
-        <h4 className="text-dark-100 font-semibold">Quy trình tích hợp:</h4>
+      <div className="space-y-6">
+        {/* Khung Thông tin Báo cáo */}
+        <div className="bg-dark-900/50 p-4 rounded-lg border border-dark-800 text-sm md:text-base text-dark-300">
+          <p className="mb-1"><strong className="text-white">Môn học:</strong> Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo</p>
+          <p className="mb-1"><strong className="text-white">Sinh viên:</strong> Nguyễn Viết Thông (IT1-K70)</p>
+          <p><strong className="text-white">Trọng tâm:</strong> Đánh giá lỗ hổng bảo mật sinh ra bởi Generative AI</p>
+        </div>
 
-        <div className="space-y-3">
-          <div className="bg-dark-900/60 border border-rose-500/20 rounded-lg p-3">
-            <span className="text-rose-400 font-mono text-sm font-semibold">Google Gemini</span>
-            <p className="text-dark-400 text-sm mt-1">
-              Phân tích kỹ thuật, lập dàn ý về ZGC (Z Garbage Collector), xử lý Thread Pool và sinh mã code so sánh hiệu năng String/StringBuilder.
-            </p>
-          </div>
+        {/* Tiêu đề phần Nghiên cứu */}
+        <div className="flex items-center gap-2 text-rose-400 font-semibold text-xs tracking-wider uppercase">
+          <span className="text-sm">↗</span> PHƯƠNG PHÁP & TÀI LIỆU NGHIÊN CỨU
+        </div>
 
-          <div className="bg-dark-900/60 border border-rose-500/20 rounded-lg p-3">
-            <span className="text-rose-400 font-mono text-sm font-semibold">DALL-E 3</span>
-            <p className="text-dark-400 text-sm mt-1">
-              Trực quan hóa khái niệm trừu tượng (vùng nhớ Eden, Survivor) bằng prompt chi tiết về màu sắc neon/dark theme.
-            </p>
-          </div>
+        {/* Danh sách các bước */}
+        <ol className="space-y-4 text-dark-200 text-sm leading-relaxed">
+          <li className="flex gap-4">
+            <span className="text-rose-500 font-bold min-w-[16px]">1.</span>
+            <div>
+              <strong className="text-white">Nghiên cứu học thuật thực nghiệm:</strong> Khai thác 5 bài báo khoa học chất lượng cao từ các thư viện uy tín như <code className="bg-dark-800 text-rose-300 rounded px-1.5 py-0.5 text-xs font-mono">ACM</code> và <code className="bg-dark-800 text-rose-300 rounded px-1.5 py-0.5 text-xs font-mono">arXiv</code> để đo lường rủi ro của GitHub Copilot bằng số liệu thực tế.
+            </div>
+          </li>
+          <li className="flex gap-4">
+            <span className="text-rose-500 font-bold min-w-[16px]">2.</span>
+            <div>
+              <strong className="text-white">Đối chiếu tiêu chuẩn ngành:</strong> Phân tích dựa trên 5 bộ tài liệu quy chuẩn quốc tế bao gồm <code className="bg-dark-800 text-rose-300 rounded px-1.5 py-0.5 text-xs font-mono">GitHub Copilot Trust Center</code>, danh sách <code className="bg-dark-800 text-rose-300 rounded px-1.5 py-0.5 text-xs font-mono">OWASP Top 10 for LLMs</code> và các bộ khung đánh giá bảo mật của MITRE, NIST.
+            </div>
+          </li>
+          <li className="flex gap-4">
+            <span className="text-rose-500 font-bold min-w-[16px]">3.</span>
+            <div>
+              <strong className="text-white">Kết luận khách quan:</strong> Tổng hợp các luồng quan điểm khác nhau để rút ra nhận định về nguy cơ chèn mã độc ngầm và đề xuất quy trình phòng ngừa rủi ro cho quy trình phát triển phần mềm.
+            </div>
+          </li>
+        </ol>
 
-          <div className="bg-dark-900/60 border border-rose-500/20 rounded-lg p-3">
-            <span className="text-rose-400 font-mono text-sm font-semibold">Canva AI (Magic Design)</span>
-            <p className="text-dark-400 text-sm mt-1">
-              Xây dựng bố cục Infographic từ text, can thiệp thủ công 70% để cấu trúc lại hệ thống lưới và font chữ Monospace cho các block code.
-            </p>
-          </div>
+        {/* NÚT BẤM CHUYỂN HƯỚNG SANG FILE PDF */}
+        <div className="pt-6 mt-6 border-t border-dark-800/80 flex justify-start">
+          <a 
+            href={`${import.meta.env.BASE_URL}bai2cns.pdf`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-rose-500/10 text-rose-400 border border-rose-500/30 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-rose-500 hover:text-white hover:border-rose-500 hover:scale-105 transition-all duration-300 group"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:animate-bounce"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Mở toàn bộ Báo cáo PDF
+          </a>
         </div>
       </div>
     ),
   },
+
+  {
+    id: 3,
+    title: 'Bài 3: Phát triển kỹ năng viết Prompt hiệu quả',
+    shortTitle: 'Kỹ năng Prompting',
+    objective: 'Phân tích và tối ưu hóa các kỹ thuật viết Prompt (Chain-of-thought, Role-Playing) cho các tác vụ học thuật phức tạp.',
+    icon: <TerminalSquare size={24} />,
+    color: 'text-fuchsia-400',
+    borderColor: 'border-fuchsia-500/20',
+    bgAccent: 'bg-fuchsia-500/10',
+    details: (
+      <div className="space-y-6">
+        
+        {/* Khung Thông tin Báo cáo */}
+        <div className="bg-dark-900/50 p-4 rounded-lg border border-dark-800 text-sm md:text-base text-dark-300">
+          <p className="mb-1"><strong className="text-white">Lớp học phần:</strong> VNU1001_E252015</p>
+          <p><strong className="text-white">Nhiệm vụ:</strong> Ứng dụng Prompt Engineering vào giải quyết các bài toán kỹ thuật chuyên sâu.</p>
+        </div>
+
+        {/* Tiêu đề */}
+        <div className="flex items-center gap-2 text-fuchsia-400 font-semibold text-xs tracking-wider uppercase">
+          <span className="text-sm">↗</span> CÁC TÁC VỤ THỰC NGHIỆM PROMPT
+        </div>
+
+        {/* Cấu trúc chia cột */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div className="bg-dark-950 border border-dark-800 p-4 rounded-lg">
+            <h4 className="text-fuchsia-300 font-bold mb-2">1. Lập trình JavaFX</h4>
+            <p className="text-dark-300">Tóm tắt tài liệu Concurrency API. Xử lý đa luồng (Task, Service) để tránh treo UI Thread, khắc phục lỗi IllegalStateException.</p>
+          </div>
+          <div className="bg-dark-950 border border-dark-800 p-4 rounded-lg">
+            <h4 className="text-fuchsia-300 font-bold mb-2">2. OOP Đa hình</h4>
+            <p className="text-dark-300">Viết prompt yêu cầu AI tạo ví dụ code thực tế để phân biệt rõ ràng cơ chế Ghi đè (Override) và Nạp chồng (Overload).</p>
+          </div>
+          <div className="bg-dark-950 border border-dark-800 p-4 rounded-lg">
+            <h4 className="text-fuchsia-300 font-bold mb-2">3. Toán cao cấp</h4>
+            <p className="text-dark-300">Tạo bộ câu hỏi ôn tập Đại số tuyến tính (Ma trận, Hệ phương trình) với yêu cầu xuất file bằng định dạng LaTeX chuẩn.</p>
+          </div>
+        </div>
+
+        <p className="text-dark-200 text-sm mt-4 italic border-l-2 border-fuchsia-500/50 pl-3">
+          * Đã áp dụng 3 nguyên tắc cốt lõi: Ràng buộc kỹ thuật cụ thể (Specificity), Tư duy theo bước (Chain-of-thought) và Gán vai chuyên gia (Role-Playing).
+        </p>
+
+        {/* NÚT BẤM CHUYỂN HƯỚNG */}
+        <div className="pt-6 mt-6 border-t border-dark-800/80 flex justify-start">
+          <a 
+            href={`${import.meta.env.BASE_URL}bai3cns.pdf`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/30 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-fuchsia-500 hover:text-white hover:border-fuchsia-500 hover:scale-105 transition-all duration-300 group"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:animate-bounce"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Mở toàn bộ Báo cáo PDF
+          </a>
+        </div>
+      </div>
+    ),
+  },
+
+  {
+    id: 4,
+    title: 'Bài 4: Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm',
+    shortTitle: 'Team Collaboration',
+    objective: 'Thiết lập không gian làm việc ảo không đồng bộ cho nhóm phát triển phần mềm Quản lý Thư viện.',
+    icon: <Users size={24} />,
+    color: 'text-emerald-400',
+    borderColor: 'border-emerald-500/20',
+    bgAccent: 'bg-emerald-500/10',
+    details: (
+      <div className="space-y-6">
+        
+        {/* Khung Thông tin */}
+        <div className="bg-dark-900/50 p-4 rounded-lg border border-dark-800 text-sm md:text-base text-dark-300">
+          <p className="mb-1"><strong className="text-white">Vai trò:</strong> Nhóm trưởng / Lập trình viên Java</p>
+          <p><strong className="text-white">Dự án:</strong> Phát triển phần mềm Quản lý Thư viện mini (JavaFX)</p>
+        </div>
+
+        {/* Tiêu đề */}
+        <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs tracking-wider uppercase">
+          <span className="text-sm">↗</span> TÍCH HỢP HỆ SINH THÁI CÔNG CỤ
+        </div>
+
+        {/* Danh sách */}
+        <ul className="space-y-4 text-dark-200 text-sm leading-relaxed">
+          <li className="flex gap-4">
+            <span className="text-emerald-500 font-bold min-w-[16px]">✓</span>
+            <div>
+              <strong className="text-white">Quản lý Agile với Trello:</strong> Tổ chức bảng Kanban (Backlog, Doing, Review, Done). Áp dụng màu nhãn (Đỏ: Code, Xanh: DB, Vàng: Báo cáo) và Checklist để breakdown các module code lớn.
+            </div>
+          </li>
+          <li className="flex gap-4">
+            <span className="text-emerald-500 font-bold min-w-[16px]">✓</span>
+            <div>
+              <strong className="text-white">Giao tiếp qua Discord:</strong> Xây dựng server riêng. Tối ưu hóa luồng thảo luận bằng cách phân quyền kênh <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">#thong-bao-chung</code>, tạo Thread cho các bug khó và dùng kênh Voice để pair-programming fix lỗi.
+            </div>
+          </li>
+          <li className="flex gap-4">
+            <span className="text-emerald-500 font-bold min-w-[16px]">✓</span>
+            <div>
+              <strong className="text-white">Kiểm soát rủi ro bằng Google Docs:</strong> Khắc phục tình trạng xung đột nội dung do 4 người sửa file cùng lúc bằng cách áp đặt sử dụng <strong className="text-emerald-400">Chế độ Đề xuất (Suggesting)</strong>. Ban hành quy tắc định danh file chuẩn: <code className="bg-dark-800 text-dark-300 rounded px-1.5 py-0.5 text-xs font-mono">[MãTask]_[Tên nội dung]_[Tên người làm]</code>.
+            </div>
+          </li>
+        </ul>
+
+        {/* NÚT BẤM CHUYỂN HƯỚNG */}
+        <div className="pt-6 mt-6 border-t border-dark-800/80 flex justify-start">
+          <a 
+            href={`${import.meta.env.BASE_URL}bai4cns.pdf`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:scale-105 transition-all duration-300 group"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:animate-bounce"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Mở toàn bộ Báo cáo PDF
+          </a>
+        </div>
+      </div>
+    ),
+  },
+
+  {
+    id: 5,
+    title: 'Bài 5: Ứng dụng AI trong sáng tạo nội dung số',
+    shortTitle: 'AI Digital Content',
+    objective: 'Sử dụng hệ sinh thái AI đa nền tảng để thiết kế Infographic truyền thông chuyên sâu về sức khỏe tâm lý.',
+    icon: <Palette size={24} />,
+    color: 'text-amber-400',
+    borderColor: 'border-amber-500/20',
+    bgAccent: 'bg-amber-500/10',
+    details: (
+      <div className="space-y-6">
+        
+        {/* Khung Thông tin */}
+        <div className="bg-dark-900/50 p-4 rounded-lg border border-dark-800 text-sm md:text-base text-dark-300">
+          <p className="mb-1"><strong className="text-white">Chủ đề:</strong> Digital Detox - "Cai nghiện" smartphone để cứu lấy não bộ</p>
+          <p><strong className="text-white">Định dạng sản phẩm:</strong> Infographic truyền thông</p>
+        </div>
+
+        {/* Tiêu đề */}
+        <div className="flex items-center gap-2 text-amber-400 font-semibold text-xs tracking-wider uppercase">
+          <span className="text-sm">↗</span> QUY TRÌNH PHỐI HỢP CÔNG CỤ AI
+        </div>
+
+        <ul className="space-y-4 text-dark-200 text-sm leading-relaxed">
+          <li className="flex gap-4">
+            <span className="text-amber-500 font-bold min-w-[16px]">•</span>
+            <div>
+              <strong className="text-white">Gemini (Xử lý dữ liệu text):</strong> Đóng vai chuyên gia tâm lý học hành vi để cấu trúc dàn ý siêu cô đọng: 3 dấu hiệu hội chứng "Rung túi áo", 2 tác hại não bộ và 3 tips cai nghiện.
+            </div>
+          </li>
+          <li className="flex gap-4">
+            <span className="text-amber-500 font-bold min-w-[16px]">•</span>
+            <div>
+              <strong className="text-white">OpenArt (Tạo sinh hình ảnh):</strong> Sử dụng prompt nghệ thuật siêu thực: <code className="bg-dark-800 text-amber-300 rounded px-1.5 py-0.5 text-xs font-mono italic">"Một bộ não bị quấn chặt bởi cáp sạc phát sáng neon, phong cách cinematic"</code> để tạo điểm nhấn ẩn dụ cho thiết kế.
+            </div>
+          </li>
+          <li className="flex gap-4">
+            <span className="text-amber-500 font-bold min-w-[16px]">•</span>
+            <div>
+              <strong className="text-white">Canva Magic Design:</strong> Đóng vai trò Input đầu vào từ 2 nền tảng trên, tự động đề xuất bố cục. Dành 80% thời gian làm "Biên tập viên" để căn chỉnh Typography, kiểm chứng fact-check và giải quyết bài toán bản quyền.
+            </div>
+          </li>
+        </ul>
+
+        {/* NÚT BẤM CHUYỂN HƯỚNG */}
+        <div className="pt-6 mt-6 border-t border-dark-800/80 flex justify-start">
+          <a 
+            href={`${import.meta.env.BASE_URL}bai5cns.pdf`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-amber-500/10 text-amber-400 border border-amber-500/30 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-amber-500 hover:text-white hover:border-amber-500 hover:scale-105 transition-all duration-300 group"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:animate-bounce"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Mở toàn bộ Báo cáo PDF
+          </a>
+        </div>
+      </div>
+    ),
+  },
+
   {
     id: 6,
-    title: 'Bài 6: Sử dụng AI có trách nhiệm',
-    shortTitle: 'AI Trách nhiệm',
-    objective: 'Trình bày bộ nguyên tắc cá nhân về sử dụng AI trong môi trường học thuật.',
-    icon: <ShieldCheck size={24} />,
-    color: 'text-cyan-400',
-    borderColor: 'border-cyan-500/20',
-    bgAccent: 'bg-cyan-500/10',
+    title: 'Bài 6: Sử dụng AI có trách nhiệm và đạo đức trong học tập',
+    shortTitle: 'AI Ethics & Policy',
+    objective: 'Nghiên cứu chính sách học thuật của trường Đại học và áp dụng quy trình kiểm định chống Đạo văn Công nghệ (AI-Plagiarism).',
+    icon: <Scale size={24} />,
+    color: 'text-violet-400',
+    borderColor: 'border-violet-500/20',
+    bgAccent: 'bg-violet-500/10',
     details: (
-      <div className="space-y-4">
-        <h4 className="text-dark-100 font-semibold">Bộ nguyên tắc cá nhân:</h4>
+      <div className="space-y-6">
+        
+        {/* Khung Thông tin */}
+        <div className="bg-dark-900/50 p-4 rounded-lg border border-dark-800 text-sm md:text-base text-dark-300">
+          <p className="mb-1"><strong className="text-white">Cơ sở lý luận:</strong> Chính sách quản lý học thuật của Đại học Quốc gia Hà Nội (VNU).</p>
+          <p><strong className="text-white">Bài luận thực hành:</strong> Tác động của AI đến xu hướng việc làm Gen Z (2025-2030).</p>
+        </div>
 
-        <div className="space-y-1">
-          <Principle
-            title="Think First, Prompt Later"
-            desc="Tự vẽ UML và định hình kiến trúc trước khi dùng AI."
-          />
-          <Principle
-            title="Quy tắc giải thích 100%"
-            desc="Tuyệt đối không giữ lại bất kỳ dòng code nào (ví dụ: ReentrantLock trong xử lý đấu giá) nếu không tự giải thích được cơ chế hoạt động."
-          />
-          <Principle
-            title="Active Refactoring"
-            desc="Không copy-paste mù quáng; phải tái cấu trúc theo Google Java Style Guide."
-          />
-          <Principle
-            title="Independent Verification"
-            desc="Kiểm chứng các đề xuất phức tạp bằng tài liệu Official hoặc Unit Test."
-          />
-          <Principle
-            title="Data Privacy"
-            desc="Chỉ cung cấp pseudo-code hoặc error stack trace khi debug, bảo mật kiến trúc nội bộ."
-          />
-          <Principle
-            title="Minh bạch trích dẫn"
-            desc="Khai báo rõ ràng phần đóng góp của AI trong báo cáo."
-          />
+        {/* Tiêu đề */}
+        <div className="flex items-center gap-2 text-violet-400 font-semibold text-xs tracking-wider uppercase">
+          <span className="text-sm">↗</span> NGUYÊN TẮC LIÊM CHÍNH HỌC THUẬT
+        </div>
+
+        {/* Danh sách */}
+        <ul className="space-y-4 text-dark-200 text-sm leading-relaxed">
+          <li className="flex gap-4">
+            <span className="text-violet-500 font-bold min-w-[16px]">-</span>
+            <div>
+              <strong className="text-white">Ranh giới sử dụng:</strong> VNU khuyến khích dùng AI để nghiên cứu, gợi mở ý tưởng nhưng cấm tuyệt đối việc lừa dối quyền tác giả (sao chép 100% nội dung sinh tự động mà không qua tư duy chuyển hóa).
+            </div>
+          </li>
+          <li className="flex gap-4">
+            <span className="text-violet-500 font-bold min-w-[16px]">-</span>
+            <div>
+              <strong className="text-white">Quy trình 3 bước kiểm định:</strong> Sử dụng mô hình ngôn ngữ để lập dàn ý bài tiểu luận 2000 từ. Sau đó thực hiện đánh giá: (1) Tính chính xác & vĩ mô, (2) Sự lặp lại logic, (3) Hành động tinh chỉnh dữ liệu thực tế của người học.
+            </div>
+          </li>
+          <li className="flex gap-4">
+            <span className="text-violet-500 font-bold min-w-[16px]">-</span>
+            <div>
+              <strong className="text-white">Sự minh bạch (Transparency):</strong> Đảm bảo mọi sự hỗ trợ từ ChatGPT, Gemini hay Copilot đều được ghi nhận rõ ràng vào mục Tài liệu tham khảo theo quy chuẩn kỹ thuật.
+            </div>
+          </li>
+        </ul>
+
+        {/* NÚT BẤM CHUYỂN HƯỚNG */}
+        <div className="pt-6 mt-6 border-t border-dark-800/80 flex justify-start">
+          <a 
+            href={`${import.meta.env.BASE_URL}bai6cns.pdf`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-violet-500/10 text-violet-400 border border-violet-500/30 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-violet-500 hover:text-white hover:border-violet-500 hover:scale-105 transition-all duration-300 group"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:animate-bounce"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Mở toàn bộ Báo cáo PDF
+          </a>
         </div>
       </div>
-    ),
-  },
+    )
+  }
 ];
 
 function ProjectCard({ project, onClick }: { project: Project; onClick: () => void }) {
@@ -483,7 +565,6 @@ export default function Projects() {
       <div className="container mx-auto px-6 md:px-12 lg:px-24">
         {/* Section header */}
         <div className="mb-16">
-          <span className="section-subtitle">// Dự án</span>
           <h2 className="section-title mt-1">Trang Dự Án</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-neon-500 to-navy-600 rounded-full mt-4" />
           <p className="text-dark-400 mt-4 max-w-xl text-lg">

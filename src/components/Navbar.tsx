@@ -31,7 +31,8 @@ export default function Navbar() {
           }
         });
       },
-      { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' }
+      // CHỈ SỬA DUY NHẤT DÒNG NÀY: Chỉnh lại tỷ lệ vùng nhìn thấy để thanh neon bắt nhạy hơn
+      { threshold: 0, rootMargin: '-20% 0px -40% 0px' }
     );
     
     // Sửa 3: Cập nhật lại các ID cần theo dõi khi cuộn trang
@@ -53,7 +54,6 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
         {/* Đổi href logo trỏ về #gioi-thieu thay vì #hero */}
         <a href="#gioi-thieu" className="flex items-center gap-2 group font-mono">
-          {/* --- ĐÃ THAY BẰNG ICON CÁ VOI XỊN XÒ --- */}
           <Shield 
             size={24} 
             className="text-neon-500 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" 

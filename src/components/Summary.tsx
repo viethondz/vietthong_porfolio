@@ -45,7 +45,6 @@ export default function Summary() {
       <div className="container mx-auto px-6 md:px-12 lg:px-24">
         {/* Section header */}
         <div className="mb-16">
-          <span className="section-subtitle">// Tổng kết</span>
           <h2 className="section-title mt-1">Trang Tổng Kết</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-neon-500 to-navy-600 rounded-full mt-4" />
         </div>
@@ -55,7 +54,14 @@ export default function Summary() {
           {SUMMARY_ITEMS.map((item, idx) => (
             <div
               key={idx}
-              className={`bg-dark-800/40 border ${item.border} rounded-xl p-6 transition-all duration-300 hover:bg-dark-800/60`}
+              // CHỈ THAY ĐỔI LẠI ĐOẠN CLASSNAME NÀY ĐỂ KÍCH HOẠT ĐỘ PHÁT SÁNG THEO TỪNG MÀU
+              className={`bg-dark-800/40 border ${item.border} rounded-xl p-6 transition-all duration-300 cursor-pointer hover:bg-dark-800/60 hover:-translate-y-1 ${
+                idx === 0 
+                  ? 'hover:border-neon-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]' 
+                  : idx === 1 
+                  ? 'hover:border-sky-400 hover:shadow-[0_0_30px_rgba(56,189,248,0.4)]' 
+                  : 'hover:border-amber-400 hover:shadow-[0_0_30px_rgba(251,191,36,0.4)]'
+              }`}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className={item.accent}>{item.icon}</div>
